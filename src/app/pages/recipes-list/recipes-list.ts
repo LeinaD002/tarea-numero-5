@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core'; import { Router, RouterLink } from '@angular/router';
-@Component({ selector:'app-recipes-list', imports:[RouterLink], templateUrl:'./recipes-list.html', styleUrl:'./recipes-list.css' })
+import { Component, inject } from '@angular/core'; import { FormsModule } from '@angular/forms'; import { Router, RouterLink } from '@angular/router';
+@Component({ selector:'app-recipes-list', imports:[RouterLink,FormsModule], templateUrl:'./recipes-list.html', styleUrl:'./recipes-list.css' })
 export class RecipesList { recipesList = {
   "recipes": [
     {
@@ -1244,4 +1244,5 @@ export class RecipesList { recipesList = {
   "total": 50,
   "skip": 0,
   "limit": 30
-}; private readonly router=inject(Router); viewDetails(id:number):void { this.router.navigate(['recipes-detail',id]); } }
+}; filterType=''; _name=''; _difficulty=''; _recipesListFilter=this.recipesList.recipes; private readonly router=inject(Router); viewDetails(id:number):void { this.router.navigate(['recipes-detail',id]); }
+filterRecipesList():void { if(this.filterType==='NAME') this._recipesListFilter=this.recipesList.recipes.filter((x:any)=>x.name.toLowerCase().includes(this._name.toLowerCase())); else if(this.filterType==='DIFFICULTY') this._recipesListFilter=this.recipesList.recipes.filter((x:any)=>x.difficulty.toLowerCase().includes(this._difficulty.toLowerCase())); else this._recipesListFilter=this.recipesList.recipes; } }
