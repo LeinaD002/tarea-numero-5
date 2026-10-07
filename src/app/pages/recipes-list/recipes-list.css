@@ -1,3 +1,6 @@
 table { width:100%; border-collapse:collapse; margin:16px; background:#fff; box-shadow:0 8px 24px rgb(15 23 42 / 18%); } th,td { border:1px solid #e2e8f0; padding:10px 12px; text-align:left; } th { background:#e0e7ff; color:#312e81; } tbody tr:nth-child(odd){background:#fff;} tbody tr:nth-child(even){background:#eef2ff;} tbody tr:hover{background:#e0e7ff;}
 
 .filters{display:flex;flex-direction:column;gap:10px;margin:16px;padding:16px;border:1px solid #e2e8f0;background:#fff;box-shadow:0 8px 24px rgb(15 23 42 / 18%)} .filters h3{margin:0;color:#312e81}.filters label{display:flex;align-items:center;gap:8px}.filters button{align-self:flex-start;padding:6px 12px;border:1px solid #e2e8f0;background:#e0e7ff;color:#312e81}
+
+.filter-actions { display:flex; gap:8px; }
+.filters button:disabled { opacity:.55; cursor:not-allowed; }

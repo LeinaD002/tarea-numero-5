@@ -1,3 +1,18 @@
-import { Component, computed, input } from '@angular/core'; import { RECIPES_LIST_DATA } from '../../data/recipes-list-data';
-@Component({selector:'app-recipes-detail-v2',imports:[],templateUrl:'./recipes-detail-v2.html',styleUrl:'./recipes-detail-v2.css'})
-export class RecipesDetailV2 { recipesList=RECIPES_LIST_DATA; filterType=input(''); name=input(''); difficulty=input(''); filtered=computed(()=>this.recipesList.recipes.filter((x:any)=>{const n=this.name().toLowerCase(),d=this.difficulty().toLowerCase();if(this.filterType()==='NAME')return x.name.toLowerCase().includes(n);if(this.filterType()==='DIFFICULTY')return x.difficulty.toLowerCase().includes(d);return false;})); }
+import { Component, computed, input } from '@angular/core';
+import { RECIPES_LIST_DATA } from '../../data/recipes-list-data';
+
+@Component({ selector: 'app-recipes-detail-v2', imports: [], templateUrl: './recipes-detail-v2.html', styleUrl: './recipes-detail-v2.css' })
+export class RecipesDetailV2 {
+  name = input<string>();
+  difficulty = input<string>();
+  recipesList = RECIPES_LIST_DATA;
+  filterRecipesList = computed(() => {
+    const name = this.name()?.toLowerCase() ?? '';
+    const difficulty = this.difficulty()?.toLowerCase() ?? '';
+    return this.recipesList.recipes.filter(x => {
+      if (name) return x.name.toLowerCase().includes(name);
+      if (difficulty) return x.difficulty.toLowerCase().includes(difficulty);
+      return false;
+    });
+  });
+}

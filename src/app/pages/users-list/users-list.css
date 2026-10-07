@@ -1,0 +1,5 @@
+.users { display:flex; flex-wrap:wrap; gap:20px; padding:16px; }
+.user-card { display:flex; flex-direction:column; flex:1 1 352px; gap:8px; padding:16px; border:1px solid #e2e8f0; border-radius:12px; background:#fff; box-shadow:0 8px 24px rgb(15 23 42 / 18%); }
+.user-card h2,.user-card h3,.post h4 { margin:0; color:#312e81; } .user-card p { margin:0; }
+.posts { display:flex; flex-direction:column; gap:10px; padding-top:8px; }
+.post { display:flex; flex-direction:column; gap:6px; padding:12px; border:1px solid #e2e8f0; border-radius:8px; background:#e0e7ff; }
